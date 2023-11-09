@@ -5,11 +5,12 @@ from utils import *
 # Abra a imagem
 # img = Image.open('../Curso/imagem_cinza.png')
 img = Image.open('imagem_monocromatica.png')
-
+img.show()
 
 def negativo(imagem, mode, size):
     nova_imagem = Image.new(mode, size)
     dados = list(imagem.getdata())
+    print(dados[0])
     data = convert_list_tuple(dados)
 
     for i in range(len(dados)):

@@ -4,7 +4,7 @@ import random
 # L = R * 299/1000 + G * 587/1000 + B * 114/1000
 # Abra a imagem RGB
 # img = Image.open('../Curso/input/baloes.png')
-img = Image.open('../girasol.jpg')
+img = Image.open('lena.bmp')
 img.show()
 
 
