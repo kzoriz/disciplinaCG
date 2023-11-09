@@ -1,5 +1,13 @@
 from PIL import Image
 
+
+def convert_list_tuple(dados):
+    for i in range(len(dados)):
+        dados[i] = tuple(dados[i])
+
+    return dados
+
+
 # Abra a imagem
 # img = Image.open('../Curso/imagem_cinza.png')
 img = Image.open('../girasol.jpg')
