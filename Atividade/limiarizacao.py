@@ -20,13 +20,15 @@ def limiarizacao(imagem, mode, size):
         valor_ant = 0
         cont = 0
         while limiar <= 255:
+            if limiar > 255:
+                limiar = 255
             for j in range(len(data)):
                 if valor_ant < data[j][0] < limiar:
                     # print(valor_ant, limiar)
                     data[j][0], data[j][1], data[j][2] = limiar - ((limiar - valor_ant) // 2), \
                         (limiar - (limiar - valor_ant) // 2), \
                         (limiar - (limiar - valor_ant) // 2)
-                    # print(f'se estiver entre {valor_ant} e {limiar}, recebe {limiar - ((limiar - valor_ant) // 2)}')
+                    print(f'se estiver entre {valor_ant} e {limiar}, recebe {limiar - ((limiar - valor_ant) // 2)}')
             valor_ant = limiar
             limiar += valor
             # if limiar > 255:

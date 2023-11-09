@@ -1,29 +1,25 @@
 from PIL import Image
-
-
-def convert_list_tuple(dados):
-    for i in range(len(dados)):
-        dados[i] = tuple(dados[i])
-
-    return dados
-
+from utils import *
 
 # Abra a imagem
 # img = Image.open('../Curso/imagem_cinza.png')
-img = Image.open('../girasol.jpg')
+img = Image.open('imagem_monocromatica.png')
 
 
 def binarizacao(imagem, mode, size):
     nova_imagem = Image.new(mode, size)
     dados = list(imagem.getdata())
+    data = convert_list_tuple(dados)
 
-    for i in range(len(dados)):
-        if dados[i] <= 128:
-            dados[i] = 0
+    for i in range(len(data)):
+        if data[i][0] <= 168:
+            data[i][0], data[i][1], data[i][2] = 0, 0, 0
+
         else:
-            dados[i] = 255
+            data[i][0], data[i][1], data[i][2] = 255, 255, 255
 
-    nova_imagem.putdata(dados)
+    data = convert_list_tuple(dados)
+    nova_imagem.putdata(data)
     nova_imagem.save('imagem_binarizada.png')
     # nova_imagem.show()
 
